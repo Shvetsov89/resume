@@ -1,0 +1,215 @@
+{{! 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+
+<main>
+  <div>
+    <button type='button' class='btn btn-primary'>Car for
+      sale</button>
+    <ul>
+      <b>{{make}}</b><br />
+      <b>{{model}}</b><br />
+      <b>{{year}}</b><br />
+      <b>{{color}}</b><br />
+    </ul>
+    <hr />
+    <button type='button' class='btn btn-primary'>
+      Features
+      <span class='badge text-bg-secondary'></span>
+    </button><br />
+    {{#with features}}
+      <b>Interior:</b><br />
+      {{#with interior.seats}}
+        <ul>
+          <b>Material</b>
+          <em>{{material}}</em><br />
+          <b>Color</b>
+          <em>{{color}}</em><br />
+          <b>Heated</b>{{#if heated}} (+) {{/if}}<br />
+          <b>Ventilated</b>{{#if ventilated}} (+) {{/if}}
+        </ul>
+      {{/with}}
+      <b>Dashboard:</b>
+      <br />
+      {{#with interior.dashboard}}
+        <ul>
+          <b>Material</b>
+          <em>{{material}}</em><br />
+          <b>Color</b>
+          <em>{{color}}</em>
+        </ul>
+        {{#with display}}
+          <ul>
+            <b>Display<span
+                class='badge bg-secondary'
+              >{{type}}
+                {{size}}
+                {{resolution}}</span></b><br />
+            <b>Touchscreen</b>{{#if touchscreen}}
+              (+)
+            {{/if}}
+          </ul>
+        {{/with}}
+      {{/with}}
+      <b>Audio:</b><br />
+      {{#with interior.audio}}
+        <ul>
+          <b>System</b>
+          <em>{{system}}</em><br />
+          <b>Speakers</b>
+          <em>{{speakers}}</em><br />
+          <b>Subwoofer</b>{{#if subwoofer}} (+) {{/if}}<br
+          />
+          <b>Bluetooth</b>{{#if bluetooth}} (+) {{/if}}<br
+          />
+          <b>USB</b>{{#if USB}} (+) {{/if}}
+        </ul>
+      {{/with}}
+      <br />
+      <button type='button' class='btn btn-primary'>
+        Exterior
+        <span class='badge text-bg-secondary'></span>
+      </button><br />
+      <b>Wheels:</b><br />
+      {{#with exterior.wheels}}
+        <ul>
+          <b>Size</b>
+          <em>{{size}}</em><br />
+          <b>Type</b>
+          <em>{{type}}</em><br />
+          <b>Color</b>
+          <em>{{color}}</em>
+        </ul>
+      {{/with}}
+      <br />
+      <b>Headlights:</b>
+      {{#with exterior.headlights}}
+        <ul>
+          <b>Type</b>
+          <em>{{type}}</em><br />
+          <b>Brightness</b>
+          <em>{{brightness}}</em><br />
+          <b>Automatic</b>{{#if automatic}} (+) {{/if}}
+        </ul>
+      {{/with}}
+      <br />
+      <b>Sunroof:</b>
+      {{#with exterior.sunroof}}
+        <ul>
+          <b>Type</b>
+          <em>{{type}}</em><br />
+          <b>Size</b>
+          <em>{{size}}</em><br />
+          <b>Automatic</b>{{#if automatic}} (+) {{/if}}
+        </ul>
+      {{/with}}
+      <br />
+      <b>Safer:</b><br />
+      <b>Airbags:</b>
+      {{#with safety.airbags}}
+        <ul>
+          <b>Front</b>
+          <em>{{front}}</em><br />
+          <b>Side</b>
+          <em>{{side}}</em><br />
+          <b>Knee</b>
+          <em>{{knee}}</em><br />
+          <b>Rear</b>
+          <em>{{rear}}</em><br />
+        </ul>
+      {{/with}}
+      <br />
+      <b>Assistance:</b>
+      {{#with safety.assistance}}
+        <ul>
+          <b>blind_spot_monitoring</b>{{#if
+            blind_spot_monitoring
+          }} (+) {{/if}}
+          /
+          <b>rear_cross_traffic_alert</b>{{#if
+            rear_cross_traffic_alert
+          }} (+) {{/if}}
+          /
+          <b>lane_departure_warning</b>{{#if
+            lane_departure_warning
+          }} (+) {{/if}}
+          /
+          <b>adaptive_cruise_control</b>{{#if
+            adaptive_cruise_control
+          }} (+) {{/if}}
+          /
+          <b>collision_warning</b>{{#if collision_warning}}
+            (+)
+          {{/if}}
+        </ul>
+      {{/with}}
+    {{/with}}
+    <b>Engine:</b>
+    {{#with engine}}
+      <ul>
+        <b>Type</b>
+        <em>{{type}}</em><br />
+        <b>Displacement</b>
+        <em>{{displacement}}</em><br />
+        <b>Horsepower</b>
+        <em>{{horsepower}}</em><br />
+        <b>Torque</b>
+        <em>{{torque}}</em><br />
+      </ul>
+      <b>Transmission:</b>
+      {{#with transmission}}
+        <ul>
+          <b>Type</b>
+          <em>{{type}}</em><br />
+          <b>Gears</b>
+          <em>{{gears}}</em><br />
+        </ul>
+      {{/with}}
+    {{/with}}
+    <b>Fuel_economy:</b>
+    {{#with fuel_economy}}
+      <ul>
+        <b>City</b>
+        <em>{{city}}</em><br />
+        <b>Highway</b>
+        <em>{{highway}}</em><br />
+        <b>Combined</b>
+        <em>{{combined}}</em><br />
+      </ul>
+    {{/with}}
+    <button type='button' class='btn btn-primary'>
+      PRICE
+      <span class='badge text-bg-secondary'></span>
+    </button>
+    {{#with price}}
+      <ul>
+        <b>Base</b>
+        <em>{{base}}</em><br />
+        <b>Destination</b>
+        <em>{{destination}}</em><br />
+      </ul>
+    {{/with}}
+    <b>Options:</b>
+    {{#with price.options}}
+      <ul>
+        <b>Navigation</b>
+        <em>{{navigation}}</em><br />
+        <b>Moonroof</b>
+        <em>{{moonroof}}</em><br />
+        <b>Premium_paint</b>
+        <em>{{premium_paint}}</em><br />
+      </ul>
+    {{/with}}
+    {{#with price}}
+      <b>Total:</b>
+      <em>{{total}}</em><br />
+    {{/with}}
+
+  </div>
+</main>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
